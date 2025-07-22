@@ -1,0 +1,936 @@
+@font-face {
+  font-family: "Sapient Sans";
+  src: url("/assets/fonts/SapientSansRegular/SapientSansRegular.woff2") format("woff2");
+  font-weight: 400;
+  /* Regular */
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: "Sapient Sans";
+  src: url("/assets/fonts/SapientSansMedium/SapientSansMedium.woff2") format("woff2");
+  font-weight: 500;
+  /* Medium */
+  font-style: normal;
+  font-display: swap; }
+
+:root {
+  --font-family-sapient: "Sapient Sans", sans-serif; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  font-family: serif;
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-style: normal; }
+  @media only screen and (min-width: 2500px) {
+    html {
+      font-size: 85%; } }
+  @media only screen and (max-width: 1600px) {
+    html {
+      font-size: 62.5%; } }
+  @media only screen and (max-width: 1400px) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 768px) {
+    html {
+      font-size: 62.5%; } }
+  @media only screen and (max-width: 320px) {
+    html {
+      font-size: 50%; } }
+
+body {
+  color: #d8ab62;
+  overflow-x: hidden;
+  position: relative;
+  opacity: 0;
+  transition: all .2s ease-in-out; }
+
+textarea,
+button,
+select,
+a,
+div,
+li {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  appearance: none; }
+
+img {
+  max-width: 100%;
+  display: block; }
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out; }
+
+a:hover {
+  opacity: 0.75; }
+
+li {
+  list-style: none; }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey; }
+
+.sectionWrapper {
+  margin: 0 auto;
+  padding-left: 7.5vw;
+  padding-right: 7.5vw;
+  max-width: calc(1600px + 16vw); }
+
+@media (max-width: 575px) {
+  .sectionWrapper {
+    margin: 0 auto;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    max-width: calc(1400px + 10vw); } }
+
+.desktop,
+.mobile {
+  display: none !important; }
+
+@media (min-width: 769px) {
+  .desktop {
+    display: flex !important; } }
+
+@media (max-width: 768px) {
+  .mobile {
+    display: flex !important; } }
+
+.primaryButton {
+  font-family: var(--font-family-sapient);
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.16px;
+  text-align: left;
+  color: #fff;
+  padding: 1.3rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(to top, #56bbbc -7%, #60dcb2 107%), linear-gradient(82deg, #60dcb2 2%, #f5f5f9 47%, #60dcb2 99%);
+  background-origin: border-box; }
+  .primaryButton img {
+    transition: all 0.3s ease-in-out; }
+  .primaryButton:hover img {
+    transform: translateX(15%); }
+
+.tag {
+  display: flex;
+  font-family: var(--font-family-sapient);
+  font-size: 1.2rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #60dcb2;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #60dcb2;
+  align-self: flex-start;
+  color: #fefeff;
+  border-radius: 5rem;
+  background-color: #001408;
+  border: 1px solid #60dcb2; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #fff; }
+  .header .logo {
+    display: flex;
+    max-width: 13rem; }
+    .header .logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; }
+  .header .nav {
+    display: flex;
+    gap: 4rem; }
+    .header .nav a {
+      font-family: var(--font-family-sapient);
+      font-size: 1.6rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: left;
+      color: #64636a; }
+  .header .button {
+    position: relative; }
+
+.home_banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 6rem;
+  background-image: conic-gradient(from 0.25turn, #fff, #e4ece8 0.25turn, #fff 0.5turn, #e4ece8 0.75turn, #fff); }
+  .home_banner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 15%;
+    background-color: #60dcb2;
+    top: 0; }
+  .home_banner::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 2px;
+    width: 15%;
+    background-color: #60dcb2;
+    top: 0; }
+  .home_banner .title {
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4.2rem;
+    margin-bottom: 3.2rem; }
+    .home_banner .title .line.left {
+      position: relative;
+      height: 2px;
+      width: 30%;
+      background: #ffffff;
+      background: linear-gradient(90deg, white 20%, #e4e1f8 69%); }
+      .home_banner .title .line.left::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        transition: all 0.3s ease-in-out;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        background: #ffffff;
+        background: linear-gradient(0deg, white 0%, #e4e1f8 69%); }
+    .home_banner .title .line.right {
+      position: relative;
+      height: 2px;
+      width: 30%;
+      background: #ffffff;
+      background: linear-gradient(260deg, white 20%, #e4e1f8 69%); }
+      .home_banner .title .line.right::before {
+        transition: all 0.3s ease-in-out;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        background: #ffffff;
+        background: linear-gradient(0deg, white 0%, #e4e1f8 69%); }
+    .home_banner .title .button {
+      font-family: var(--font-family-sapient);
+      font-size: 1.2rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: left;
+      color: #fefeff;
+      display: flex;
+      gap: 0.5rem;
+      padding: 1rem 1.2rem;
+      border-radius: 5rem;
+      background-color: #001408;
+      border: 1px solid #60dcb2; }
+  .home_banner .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .home_banner .content h1 {
+      font-family: var(--font-family-sapient);
+      font-size: 9.6rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: -2.88px;
+      text-align: center;
+      color: #070127;
+      margin-bottom: 2.4rem; }
+      @media (max-width: 1024px) {
+        .home_banner .content h1 {
+          font-size: 6rem; } }
+    .home_banner .content p {
+      font-family: var(--font-family-sapient);
+      font-size: 1.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: center;
+      color: #64636a;
+      margin-bottom: 2.4rem; }
+    .home_banner .content .email {
+      display: flex;
+      position: relative;
+      width: 100%;
+      max-width: 60rem; }
+      .home_banner .content .email input {
+        width: 100%;
+        font-family: var(--font-family-sapient);
+        font-size: 1.6rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: -0.16px;
+        text-align: left;
+        color: #000;
+        padding: 2.4rem 2.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        border-radius: 12px;
+        border: none; }
+        .home_banner .content .email input:focus {
+          outline: none;
+          border: none;
+          box-shadow: none;
+          /* in case browser adds focus glow */ }
+      .home_banner .content .email .submit {
+        position: absolute;
+        right: 0.5%;
+        top: 5%;
+        height: 90%; }
+
+.home_imageBlock {
+  display: flex;
+  padding-top: 5rem;
+  background-image: conic-gradient(from 0.25turn, #fff, #e4ece8 0.25turn, #fff 0.5turn, #e4ece8 0.75turn, #fff); }
+  .home_imageBlock img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; }
+
+.home_whyMedsee {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-color: #f5f5f9; }
+  .home_whyMedsee .head {
+    display: flex;
+    flex-direction: column; }
+    .home_whyMedsee .head h1 {
+      margin-bottom: 1.6rem; }
+    .home_whyMedsee .head h2 {
+      font-family: var(--font-family-sapient);
+      font-size: 6rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: -2.4px;
+      text-align: left;
+      color: #070127;
+      margin-bottom: 5.6rem; }
+  .home_whyMedsee .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2.4rem; }
+    .home_whyMedsee .content .block {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 3.2rem;
+      padding: 3.2rem 1.2rem 1.2rem 1.2rem; }
+      .home_whyMedsee .content .block .title {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        gap: 2rem;
+        margin-bottom: 4.2rem; }
+        .home_whyMedsee .content .block .title img {
+          max-width: 5.8rem;
+          align-self: flex-start; }
+        .home_whyMedsee .content .block .title .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; }
+          .home_whyMedsee .content .block .title .text h1 {
+            font-family: var(--font-family-sapient);
+            font-size: 3.2rem;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: -0.96px;
+            text-align: left;
+            color: #070127;
+            margin-bottom: 1.6rem; }
+          .home_whyMedsee .content .block .title .text p {
+            font-family: var(--font-family-sapient);
+            font-size: 1.6rem;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.4;
+            letter-spacing: normal;
+            text-align: left;
+            color: #64636a; }
+    .home_whyMedsee .content .c1 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 2.5%; }
+    .home_whyMedsee .content .c2 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 2.5%; }
+
+.home_WhoMedSeeServes {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f9;
+  padding-top: 8rem;
+  padding-bottom: 10rem; }
+  .home_WhoMedSeeServes .head {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6.5rem; }
+    .home_WhoMedSeeServes .head .title {
+      display: flex;
+      display: flex;
+      gap: 1.6rem;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.6rem;
+      max-width: 65rem;
+      align-self: center; }
+      .home_WhoMedSeeServes .head .title .tag {
+        font-size: 1.2rem; }
+      .home_WhoMedSeeServes .head .title .line.left {
+        position: relative;
+        flex-grow: 1;
+        height: 2px;
+        width: 30%;
+        background: #60dcb2;
+        background: linear-gradient(90deg, #60dcb2 8%, #f5f5f9 49%, #60dcb2 96%); }
+        .home_WhoMedSeeServes .head .title .line.left::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          transform: translateY(-50%);
+          background: #60dcb2; }
+      .home_WhoMedSeeServes .head .title .line.right {
+        position: relative;
+        height: 2px;
+        flex-grow: 1;
+        width: 30%;
+        background: #60dcb2;
+        background: linear-gradient(90deg, #60dcb2 8%, #f5f5f9 49%, #60dcb2 96%); }
+        .home_WhoMedSeeServes .head .title .line.right::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          transform: translateY(-50%);
+          background: #60dcb2; }
+    .home_WhoMedSeeServes .head h1 {
+      font-family: var(--font-family-sapient);
+      font-size: 6rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: -2.4px;
+      text-align: center;
+      color: #070127;
+      max-width: 65rem;
+      align-self: center;
+      margin-bottom: 2.4rem; }
+    .home_WhoMedSeeServes .head p {
+      font-family: var(--font-family-sapient);
+      font-size: 1.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: center;
+      color: #070127;
+      max-width: 65rem;
+      align-self: center; }
+  .home_WhoMedSeeServes .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 3%; }
+    .home_WhoMedSeeServes .content .line {
+      position: relative;
+      width: 2px;
+      background: #fff;
+      background: linear-gradient(180deg, white 8%, #dee8fa 49%, white 96%); }
+    .home_WhoMedSeeServes .content .block {
+      display: flex;
+      flex-direction: column; }
+      .home_WhoMedSeeServes .content .block img {
+        max-width: 9.4rem;
+        position: relative;
+        margin-bottom: 2.6rem; }
+      .home_WhoMedSeeServes .content .block h1 {
+        font-family: var(--font-family-sapient);
+        font-size: 3.2rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: -0.96px;
+        text-align: left;
+        color: #070127;
+        margin-bottom: 1.6rem; }
+      .home_WhoMedSeeServes .content .block h2 {
+        font-family: var(--font-family-sapient);
+        font-size: 2.4rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: -0.72px;
+        text-align: left;
+        color: #070127;
+        margin-bottom: 1.6rem; }
+      .home_WhoMedSeeServes .content .block p {
+        font-family: var(--font-family-sapient);
+        font-size: 1.6rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.4;
+        letter-spacing: normal;
+        text-align: left;
+        color: #64636a;
+        margin-bottom: 1.6rem; }
+
+.home_contact {
+  position: relative;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem; }
+  .home_contact .sectionWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+    border-radius: 4rem;
+    background: #56bbbc;
+    background: linear-gradient(90deg, rgba(86, 186, 188, 0.107) 8%, #f5f5f9 49%, rgba(124, 229, 168, 0.124) 96%); }
+    .home_contact .sectionWrapper h1 {
+      font-family: var(--font-family-sapient);
+      font-size: 4.8rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: -1.92px;
+      text-align: center;
+      color: #070127;
+      margin-bottom: 3.2rem; }
+    .home_contact .sectionWrapper p {
+      font-family: var(--font-family-sapient);
+      font-size: 1.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: center;
+      color: #64636a;
+      margin-bottom: 4.2rem; }
+    .home_contact .sectionWrapper .email {
+      display: flex;
+      position: relative;
+      width: 100%;
+      max-width: 60rem; }
+      .home_contact .sectionWrapper .email input {
+        width: 100%;
+        font-family: var(--font-family-sapient);
+        font-size: 1.6rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: -0.16px;
+        text-align: left;
+        color: #000;
+        padding: 2.4rem 2.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        border-radius: 12px;
+        border: none; }
+        .home_contact .sectionWrapper .email input:focus {
+          outline: none;
+          border: none;
+          box-shadow: none;
+          /* in case browser adds focus glow */ }
+      .home_contact .sectionWrapper .email .submit {
+        position: absolute;
+        right: 0.5%;
+        top: 5%;
+        height: 90%; }
+
+.footer {
+  background-color: #070127;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+  gap: 11rem; }
+  .footer .c1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .footer .c1 h1 {
+      font-family: var(--font-family-sapient);
+      font-size: 6rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: -2.4px;
+      text-align: left;
+      color: #fff;
+      margin-bottom: 2rem; }
+      @media screen and (max-width: 1024px) {
+        .footer .c1 h1 {
+          font-size: 5rem; } }
+    .footer .c1 p {
+      font-family: var(--font-family-sapient);
+      font-size: 1.8rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      align-self: flex-start; }
+      .footer .c1 p a {
+        color: #78e1a9; }
+  .footer .socials {
+    display: flex;
+    justify-content: space-between; }
+    .footer .socials .logo {
+      max-width: 13rem; }
+    .footer .socials .links {
+      display: flex;
+      gap: 1rem;
+      align-items: center; }
+      .footer .socials .links img {
+        max-width: 4rem;
+        height: auto;
+        object-fit: contain; }
+
+@media (max-width: 768px) {
+  .menuBtn {
+    position: fixed;
+    z-index: 10;
+    top: 2rem;
+    right: 5vw;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; }
+    .menuBtn svg {
+      max-width: 3.5rem;
+      height: auto; }
+    .menuBtn:hover {
+      opacity: 0.7; }
+  .header {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+    z-index: 11; }
+    .header.active {
+      transform: translateX(0); }
+    .header .logo {
+      margin-bottom: 5rem; }
+    .header .nav {
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem; }
+    .header .close {
+      position: absolute;
+      top: 2rem;
+      right: 5vw;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out; }
+      .header .close svg {
+        height: auto;
+        max-width: 3.5rem; }
+      .header .close:hover {
+        opacity: 0.7; }
+  .mobile_logo {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 5vw;
+    max-width: 13rem; }
+    .mobile_logo img {
+      width: 100%; }
+  .home_banner {
+    padding-bottom: 3rem; }
+    .home_banner .title {
+      margin-top: 5rem; }
+      .home_banner .title .button {
+        display: inline-flex;
+        align-self: center; }
+      .home_banner .title .line.left {
+        flex-grow: 1;
+        width: 10%; }
+      .home_banner .title .line.right {
+        flex-grow: 1;
+        width: 10%; }
+    .home_banner .content h1 {
+      font-size: 3rem;
+      letter-spacing: -0.88px;
+      line-height: 1.2;
+      max-width: 35rem; }
+    .home_banner .content p {
+      font-size: 1.4rem;
+      max-width: 35rem; }
+    .home_banner .content .email input {
+      padding: 1.4rem 1.4rem;
+      font-size: 1.2rem; }
+    .home_banner .content .email .submit {
+      font-size: 1.2rem; }
+  .home_whyMedsee {
+    padding-top: 4rem;
+    padding-bottom: 4rem; }
+    .home_whyMedsee .head h2 {
+      font-size: 3rem;
+      margin-bottom: 3.6rem; }
+    .home_whyMedsee .content .block .title {
+      margin-bottom: 2.6rem;
+      gap: 1.6rem; }
+      .home_whyMedsee .content .block .title .text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem; }
+      .home_whyMedsee .content .block .title .text p {
+        font-size: 1.2rem; }
+    .home_whyMedsee .content .c1 {
+      flex-direction: column;
+      gap: 2.4rem; }
+    .home_whyMedsee .content .c2 {
+      flex-direction: column;
+      gap: 2.4rem; }
+  .home_WhoMedSeeServes {
+    padding-top: 4rem;
+    padding-bottom: 5rem; }
+    .home_WhoMedSeeServes .head {
+      margin-bottom: 4.5rem; }
+      .home_WhoMedSeeServes .head .title {
+        margin-top: 5rem; }
+        .home_WhoMedSeeServes .head .title .button {
+          display: inline-flex;
+          align-self: center; }
+        .home_WhoMedSeeServes .head .title .line.left {
+          flex-grow: 1;
+          width: 10%; }
+        .home_WhoMedSeeServes .head .title .line.right {
+          flex-grow: 1;
+          width: 10%; }
+      .home_WhoMedSeeServes .head h1 {
+        font-size: 3rem;
+        letter-spacing: -1.4px;
+        max-width: 25rem; }
+      .home_WhoMedSeeServes .head p {
+        font-size: 1.4rem;
+        max-width: 30rem; }
+    .home_WhoMedSeeServes .content {
+      flex-direction: column;
+      gap: 2.4rem; }
+      .home_WhoMedSeeServes .content .line {
+        display: none; }
+      .home_WhoMedSeeServes .content .block {
+        width: 80%; }
+        .home_WhoMedSeeServes .content .block img {
+          max-width: 7rem;
+          margin-bottom: 1.6rem; }
+        .home_WhoMedSeeServes .content .block h1 {
+          font-size: 2.2rem; }
+        .home_WhoMedSeeServes .content .block h2 {
+          font-size: 1.4rem;
+          letter-spacing: 0.28px; }
+        .home_WhoMedSeeServes .content .block p {
+          font-size: 1.2rem;
+          margin-bottom: 0.6rem; }
+  .home_contact {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem; }
+    .home_contact .sectionWrapper {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem; }
+      .home_contact .sectionWrapper h1 {
+        font-size: 3rem;
+        letter-spacing: -0.92px;
+        margin-bottom: 2.2rem; }
+      .home_contact .sectionWrapper p {
+        font-size: 1.4rem; }
+      .home_contact .sectionWrapper .email input {
+        padding: 1.4rem 1.4rem;
+        font-size: 1.2rem; }
+      .home_contact .sectionWrapper .email .submit {
+        font-size: 1.2rem; }
+  .footer {
+    padding-top: 5rem;
+    padding-bottom: 4rem; }
+    .footer .c1 {
+      flex-direction: column;
+      gap: 2.4rem; }
+      .footer .c1 h1 {
+        font-size: 3rem;
+        align-self: flex-start;
+        letter-spacing: -1.4px; }
+      .footer .c1 a,
+      .footer .c1 p {
+        font-size: 1.2rem; }
+    .footer .socials {
+      gap: 2.4rem; }
+      .footer .socials .links img {
+        max-width: 3rem; } }
+
+#mc_embed_shell {
+  width: 100% !important;
+  max-width: 60rem; }
+
+#mc_embed_signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+#mc-embedded-subscribe-form {
+  display: flex;
+  width: 100%;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative; }
+
+/* Input field */
+#mc-embedded-subscribe-form input[type="email"] {
+  width: 100%;
+  font-family: var(--font-family-sapient);
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.16px;
+  text-align: left;
+  color: #000;
+  padding: 2.4rem 2.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 12px;
+  border: none; }
+  #mc-embedded-subscribe-form input[type="email"]:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    /* in case browser adds focus glow */ }
+  @media screen and (max-width: 768px) {
+    #mc-embedded-subscribe-form input[type="email"] {
+      padding: 1.4rem 1.4rem;
+      font-size: 1.2rem; } }
+
+#mc-embedded-subscribe-form input[type="email"]::placeholder {
+  font-size: 1.6rem; }
+
+#mc-embedded-subscribe-form .button {
+  font-family: var(--font-family-sapient);
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.16px;
+  text-align: left;
+  color: #fff;
+  padding: 1.3rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(to top, #56bbbc -7%, #7ce5a7 107%), linear-gradient(82deg, #7ce5a7 2%, #f5f5f9 47%, #7ce5a7 99%);
+  background-origin: border-box;
+  position: absolute;
+  height: 90%;
+  right: 0.5%;
+  top: 5%; }
+  @media screen and (max-width: 768px) {
+    #mc-embedded-subscribe-form .button {
+      font-size: 1.2rem; } }
+
+#mc-embedded-subscribe-form .button:hover {
+  opacity: 0.9; }
